@@ -11,4 +11,9 @@
 
 @implementation PtvApi
 
+- (NSString *)CreateHmacSignature: (NSString *)url
+{
+    return NULL;
+}
+
 @end
