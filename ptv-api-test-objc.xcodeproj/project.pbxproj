@@ -15,6 +15,7 @@
 		2FC218511C68659D006B8236 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FC2184F1C68659D006B8236 /* LaunchScreen.storyboard */; };
 		2FC2185C1C68659D006B8236 /* ptv_api_test_objcTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FC2185B1C68659D006B8236 /* ptv_api_test_objcTests.m */; };
 		2FC218671C68659D006B8236 /* ptv_api_test_objcUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FC218661C68659D006B8236 /* ptv_api_test_objcUITests.m */; };
+		2FC218761C68680B006B8236 /* PtvApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FC218751C68680B006B8236 /* PtvApi.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		2FC218621C68659D006B8236 /* ptv-api-test-objcUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ptv-api-test-objcUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FC218661C68659D006B8236 /* ptv_api_test_objcUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ptv_api_test_objcUITests.m; sourceTree = "<group>"; };
 		2FC218681C68659D006B8236 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2FC218741C6867DF006B8236 /* PtvApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PtvApi.h; sourceTree = "<group>"; };
+		2FC218751C68680B006B8236 /* PtvApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PtvApi.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +113,8 @@
 				2FC2184F1C68659D006B8236 /* LaunchScreen.storyboard */,
 				2FC218521C68659D006B8236 /* Info.plist */,
 				2FC218411C68659C006B8236 /* Supporting Files */,
+				2FC218741C6867DF006B8236 /* PtvApi.h */,
+				2FC218751C68680B006B8236 /* PtvApi.m */,
 			);
 			path = "ptv-api-test-objc";
 			sourceTree = "<group>";
@@ -276,6 +281,7 @@
 				2FC218491C68659C006B8236 /* ViewController.m in Sources */,
 				2FC218461C68659C006B8236 /* AppDelegate.m in Sources */,
 				2FC218431C68659C006B8236 /* main.m in Sources */,
+				2FC218761C68680B006B8236 /* PtvApi.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -501,6 +507,7 @@
 				2FC2186D1C68659D006B8236 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2FC2186E1C68659D006B8236 /* Build configuration list for PBXNativeTarget "ptv-api-test-objcTests" */ = {
 			isa = XCConfigurationList;
@@ -509,6 +516,7 @@
 				2FC218701C68659D006B8236 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2FC218711C68659D006B8236 /* Build configuration list for PBXNativeTarget "ptv-api-test-objcUITests" */ = {
 			isa = XCConfigurationList;
@@ -517,6 +525,7 @@
 				2FC218731C68659D006B8236 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
