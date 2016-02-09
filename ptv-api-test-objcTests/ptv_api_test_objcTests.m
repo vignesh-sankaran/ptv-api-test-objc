@@ -7,6 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "PtvApi.h"
 
 @interface ptv_api_test_objcTests : XCTestCase
 
@@ -25,8 +26,22 @@
 }
 
 - (void)testExample {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+}
+
+- (void)testThatItEncodesUrlsWithHmac
+{
+    // given
+    NSString *healthCheckUrl = @"http://timetableapi.ptv.vic.gov.au";
+    PtvApi *testApi = [[PtvApi alloc] init];
+    
+    // when
+    NSString *test = [testApi CreateHmacSignature:healthCheckUrl];
+    
+    // then
+    
+    assert(test);
+    
 }
 
 - (void)testPerformanceExample {
