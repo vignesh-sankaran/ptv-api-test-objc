@@ -13,18 +13,22 @@
 
 @implementation PtvApi
 
-- (NSString *)CreateHmacSignature: (NSString *)url
+- (NSString *)CreateHmacSignature:(NSString *)url
 {
     NSDictionary *apiSecrets = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ApiKeys" ofType:@"plist"]];
     NSString *apiKey = [apiSecrets valueForKey:@"ApiKey"];
     
+    const char *cApiKey = [apiKey cStringUsingEncoding:NSASCIIStringEncoding];
+    const char *cUrl = [apiKey cStringUsingEncoding:NSASCIIStringEncoding];
+    
     unsigned char rawHmacOutput[CC_SHA1_DIGEST_LENGTH];
-    CCHmac(CC_SHA1_BLOCK_BYTES, (__bridge const void *)(apiKey), apiKey.length, (__bridge const void *)(url), url.length, rawHmacOutput);
+    CCHmac(kCCHmacAlgSHA1, cApiKey, strlen(cApiKey), cUrl, strlen(cUrl), rawHmacOutput);
     
     NSData *refinedHmacOutput = [[NSData alloc] initWithBytes:rawHmacOutput length:sizeof(rawHmacOutput)];
     
-    return [[NSString alloc] initWithData:refinedHmacOutput encoding:NSUTF8StringEncoding];
+    NSString *test = [[NSString alloc] initWithData:refinedHmacOutput encoding:NSASCIIStringEncoding];
     
+    return test;
 }
 
 @end

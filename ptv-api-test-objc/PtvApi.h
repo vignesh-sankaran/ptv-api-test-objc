@@ -10,7 +10,7 @@
 #define PtvApi_h
 
 @interface PtvApi : NSObject
-
+- (NSString *)CreateHmacSignature:(NSString *)url;
 @end
 
 #endif /* PtvApi_h */
