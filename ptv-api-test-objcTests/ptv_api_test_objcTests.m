@@ -52,6 +52,14 @@
     XCTAssertNotNil(dateInISO8601);
 }
 
+- (void)testThatApiCallWorks
+{
+    PtvApi *testApi = [[PtvApi alloc] init];
+    NSData *test = [testApi healthCheck];
+    
+    XCTAssertNotNil(test);
+}
+
 - (void)testPerformanceExample {
     // This is an example of a performance test case.
     [self measureBlock:^{
