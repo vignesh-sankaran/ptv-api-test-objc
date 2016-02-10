@@ -29,7 +29,7 @@
     
 }
 
-- (void)testThatItEncodesUrlsWithHmac
+- (void)testThatHmacMethodReturnsNotNullString
 {
     // given
     NSString *healthCheckUrl = @"http://timetableapi.ptv.vic.gov.au";
@@ -40,8 +40,16 @@
     
     // then
     
-    assert(test);
+    XCTAssertNotNil(test);
     
+}
+
+- (void)testThatDateGetsFormatted
+{
+    PtvApi *testApi = [[PtvApi alloc] init];
+    NSString *dateInISO8601 = [testApi CurrentDateTimeInISO8601];
+    
+    XCTAssertNotNil(dateInISO8601);
 }
 
 - (void)testPerformanceExample {
