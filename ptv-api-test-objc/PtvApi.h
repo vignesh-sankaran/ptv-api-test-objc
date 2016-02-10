@@ -11,6 +11,7 @@
 
 @interface PtvApi : NSObject
 - (NSString *)CreateHmacSignature:(NSString *)url;
+- (NSString *)CurrentDateTimeInISO8601;
 @end
 
 #endif /* PtvApi_h */

@@ -31,4 +31,22 @@
     return test;
 }
 
+- (NSString *)CurrentDateTimeInISO8601
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setLocale:[NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"]];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZZZZZ"];
+    return [dateFormatter stringFromDate:[NSDate date]];
+    
+}
+
+- (NSData *)healthCheck
+{
+    return NULL;
+}
+
+@end
+
+@interface NSDate ()
+
 @end
