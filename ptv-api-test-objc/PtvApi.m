@@ -25,7 +25,6 @@
     CCHmac(kCCHmacAlgSHA1, cApiKey, strlen(cApiKey), cUrl, strlen(cUrl), rawHmacOutput);
     
     NSData *refinedHmacOutput = [[NSData alloc] initWithBytes:rawHmacOutput length:sizeof(rawHmacOutput)];
-    
     NSString *test = [[NSString alloc] initWithData:refinedHmacOutput encoding:NSASCIIStringEncoding];
     
     return test;
@@ -42,6 +41,24 @@
 
 - (NSData *)healthCheck
 {
+    NSString *baseUrl = @"http://timetableapi.ptv.vic.gov.au";
+    NSString *healthCheckUrl = @"/v2/healthCheck";
+    NSString *currentDateTimeInISO8601 = [self CurrentDateTimeInISO8601];
+ 
+    NSDictionary *apiSecrets = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ApiKeys" ofType:@"plist"]];
+    NSString *devId = [apiSecrets valueForKey:@"DevId"];
+    
+    NSString *preHmacUrl = [NSString stringWithFormat:@"%@%@%@%@%@%@", baseUrl, healthCheckUrl, @"?timestamp=", currentDateTimeInISO8601, @"&devid=", devId];
+    NSString *hmac = [self CreateHmacSignature:preHmacUrl];
+    
+    NSString *fullUrl = [NSString stringWithFormat:@"%@%@%@", preHmacUrl, @"&signature=", hmac];
+    
+    NSURLSessionConfiguration *healthCheckConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *healthCheckSession = [NSURLSession sessionWithConfiguration: healthCheckConfiguration delegate:self delegateQueue:nil];
+    NSURL *url = [NSURL URLWithString:fullUrl];
+    
+    NSURLSessionTask *healthCheckTask = [healthCheckSession dataTaskWithURL:url];
+    [healthCheckTask resume];
     return NULL;
 }
 
