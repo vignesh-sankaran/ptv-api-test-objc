@@ -37,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2F08FBC51C6C46BD006D5A80 /* PtvApiPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PtvApiPrivate.h; sourceTree = "<group>"; };
 		2F34F3CB1C6996DB001C3D91 /* ApiKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ApiKeys.plist; sourceTree = "<group>"; };
 		2FC2183E1C68659C006B8236 /* ptv-api-test-objc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ptv-api-test-objc.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FC218421C68659C006B8236 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -54,7 +55,7 @@
 		2FC218621C68659D006B8236 /* ptv-api-test-objcUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ptv-api-test-objcUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FC218661C68659D006B8236 /* ptv_api_test_objcUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ptv_api_test_objcUITests.m; sourceTree = "<group>"; };
 		2FC218681C68659D006B8236 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2FC218741C6867DF006B8236 /* PtvApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PtvApi.h; sourceTree = "<group>"; };
+		2FC218741C6867DF006B8236 /* PtvApiPublic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PtvApiPublic.h; sourceTree = "<group>"; };
 		2FC218751C68680B006B8236 /* PtvApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PtvApi.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -112,12 +113,13 @@
 				2FC218481C68659C006B8236 /* ViewController.m */,
 				2FC2184A1C68659D006B8236 /* Main.storyboard */,
 				2FC2184D1C68659D006B8236 /* Assets.xcassets */,
-				2FC2184F1C68659D006B8236 /* LaunchScreen.storyboard */,
 				2FC218521C68659D006B8236 /* Info.plist */,
 				2FC218411C68659C006B8236 /* Supporting Files */,
-				2FC218741C6867DF006B8236 /* PtvApi.h */,
+				2FC218741C6867DF006B8236 /* PtvApiPublic.h */,
+				2FC2184F1C68659D006B8236 /* LaunchScreen.storyboard */,
 				2FC218751C68680B006B8236 /* PtvApi.m */,
 				2F34F3CB1C6996DB001C3D91 /* ApiKeys.plist */,
+				2F08FBC51C6C46BD006D5A80 /* PtvApiPrivate.h */,
 			);
 			path = "ptv-api-test-objc";
 			sourceTree = "<group>";

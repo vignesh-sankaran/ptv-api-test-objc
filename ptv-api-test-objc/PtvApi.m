@@ -9,7 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <CommonCrypto/CommonHMAC.h>
 #import <CommonCrypto/CommonDigest.h>
-#import "PtvApi.h"
+#import "PtvApiPublic.h"
+#import "PtvApiPrivate.h"
 
 @implementation PtvApi
 
