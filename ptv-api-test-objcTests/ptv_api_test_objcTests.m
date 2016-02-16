@@ -58,7 +58,7 @@
     PtvApi *testApi = [[PtvApi alloc] init];
     NSData *test = [testApi healthCheck];
     
-    XCTAssertNotNil(test);
+    XCTAssertNil(test);
 }
 
 - (void)testPerformanceExample {
