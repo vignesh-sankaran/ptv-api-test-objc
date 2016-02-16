@@ -54,17 +54,15 @@
     
     NSString *fullUrl = [NSString stringWithFormat:@"%@%@%@", preHmacUrl, @"&signature=", hmac];
     
-    NSURLSessionConfiguration *healthCheckConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
-    NSURLSession *healthCheckSession = [NSURLSession sessionWithConfiguration: healthCheckConfiguration delegate:self delegateQueue:nil];
-    NSURL *url = [NSURL URLWithString:fullUrl];
+    NSURLSession *apiSession = [NSURLSession sharedSession];
+    NSURL *apiUrl = [NSURL URLWithString: fullUrl];
+    NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:apiUrl];
+    [apiSession dataTaskWithRequest:urlRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        NSLog(fullUrl);
+        NSLog(@"This is a test to see what prints out here");
+    }];
     
-    NSURLSessionTask *healthCheckTask = [healthCheckSession dataTaskWithURL:url];
-    [healthCheckTask resume];
-    return NULL;
+    return nil;
 }
-
-@end
-
-@interface NSDate ()
 
 @end
