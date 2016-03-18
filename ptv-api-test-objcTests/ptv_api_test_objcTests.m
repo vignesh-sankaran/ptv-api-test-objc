@@ -64,17 +64,11 @@
     __block Boolean hasCalledBack = NO;
     
     PtvApi *testApi = [[PtvApi alloc] init];
-    NSData *testData;
-    NSURLResponse *testResponse;
-    NSError *testError;
     
-    void (^completionBlock)(NSData *data, NSURLResponse *response, NSError *error) = ^(NSData *data, NSURLResponse *response, NSError *error)
-    {
+    [testApi healthCheck:^(NSData *data, NSURLResponse *response, NSError *error) {
         NSLog(@"This thing has completed");
         hasCalledBack = YES;
-    };
-    
-    [testApi healthCheck:completionBlock];
+    }];
     
     NSDate *loopUntil = [NSDate dateWithTimeIntervalSinceNow:10];
     while (hasCalledBack == NO && [loopUntil timeIntervalSinceNow] > 0) {
