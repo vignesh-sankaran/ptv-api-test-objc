@@ -61,23 +61,31 @@
 
 - (void)testThatApiCallWorks
 {
-    PtvApi *testApi = [[PtvApi alloc] init];
-    
     __block Boolean hasCalledBack = NO;
     
-    void (^completionBlock)(void) = ^(void)
+    PtvApi *testApi = [[PtvApi alloc] init];
+    NSData *testData;
+    NSURLResponse *testResponse;
+    NSError *testError;
+    
+    void (^completionBlock)(NSData *data, NSURLResponse *response, NSError *error) = ^(NSData *data, NSURLResponse *response, NSError *error)
     {
         NSLog(@"This thing has completed");
         hasCalledBack = YES;
     };
     
-}
-
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
+    [testApi healthCheck:completionBlock];
+    
+    NSDate *loopUntil = [NSDate dateWithTimeIntervalSinceNow:10];
+    while (hasCalledBack == NO && [loopUntil timeIntervalSinceNow] > 0) {
+        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:loopUntil];
+    }
+    
+    if (!hasCalledBack)
+    {
+        XCTAssertFalse(@"I know this will fail, thanks");
+    }
+    
 }
 
 @end
