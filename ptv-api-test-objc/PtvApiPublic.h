@@ -10,7 +10,7 @@
 #define PtvApi_h
 
 @interface PtvApi : NSObject
-- (NSData *)healthCheck;
+- (void)healthCheck;
 @end
 
 #endif /* PtvApi_h */
