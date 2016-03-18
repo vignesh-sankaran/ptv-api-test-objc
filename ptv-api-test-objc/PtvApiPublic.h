@@ -10,7 +10,7 @@
 #define PtvApi_h
 
 @interface PtvApi : NSObject
-- (void)healthCheck;
+- (void)healthCheck:(void(^)(NSData *data, NSURLResponse *response, NSError *error))completionHandler;
 @end
 
 #endif /* PtvApi_h */
