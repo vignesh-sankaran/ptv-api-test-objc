@@ -11,8 +11,10 @@
 #import <CommonCrypto/CommonDigest.h>
 #import "PtvApiPublic.h"
 #import "PtvApiPrivate.h"
+#import "PtvApiDelegate.h"
 
 @implementation PtvApi
+@synthesize delegate;
 
 - (NSString *)CreateHmacSignature:(NSString *)url
 {
@@ -71,5 +73,7 @@
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:apiUrl];
     [apiSession dataTaskWithRequest:urlRequest completionHandler:completionHandler];
 }
+
+
 
 @end
