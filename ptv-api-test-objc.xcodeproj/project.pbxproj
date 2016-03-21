@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2F34F3CC1C6996DB001C3D91 /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F34F3CB1C6996DB001C3D91 /* ApiKeys.plist */; };
+		2F26E3D41C9FEC7F00127DEA /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F26E3D31C9FEC7F00127DEA /* ApiKeys.plist */; };
 		2FC218431C68659C006B8236 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FC218421C68659C006B8236 /* main.m */; };
 		2FC218461C68659C006B8236 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FC218451C68659C006B8236 /* AppDelegate.m */; };
 		2FC218491C68659C006B8236 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FC218481C68659C006B8236 /* ViewController.m */; };
@@ -38,7 +38,8 @@
 
 /* Begin PBXFileReference section */
 		2F08FBC51C6C46BD006D5A80 /* PtvApiPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PtvApiPrivate.h; sourceTree = "<group>"; };
-		2F34F3CB1C6996DB001C3D91 /* ApiKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ApiKeys.plist; sourceTree = "<group>"; };
+		2F26E3D01C9FE94C00127DEA /* PtvApiDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PtvApiDelegate.h; sourceTree = "<group>"; };
+		2F26E3D31C9FEC7F00127DEA /* ApiKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ApiKeys.plist; path = ../ApiKeys.plist; sourceTree = "<group>"; };
 		2FC2183E1C68659C006B8236 /* ptv-api-test-objc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ptv-api-test-objc.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FC218421C68659C006B8236 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2FC218441C68659C006B8236 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -118,8 +119,9 @@
 				2FC218741C6867DF006B8236 /* PtvApiPublic.h */,
 				2FC2184F1C68659D006B8236 /* LaunchScreen.storyboard */,
 				2FC218751C68680B006B8236 /* PtvApi.m */,
-				2F34F3CB1C6996DB001C3D91 /* ApiKeys.plist */,
+				2F26E3D31C9FEC7F00127DEA /* ApiKeys.plist */,
 				2F08FBC51C6C46BD006D5A80 /* PtvApiPrivate.h */,
+				2F26E3D01C9FE94C00127DEA /* PtvApiDelegate.h */,
 			);
 			path = "ptv-api-test-objc";
 			sourceTree = "<group>";
@@ -257,7 +259,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FC218511C68659D006B8236 /* LaunchScreen.storyboard in Resources */,
-				2F34F3CC1C6996DB001C3D91 /* ApiKeys.plist in Resources */,
+				2F26E3D41C9FEC7F00127DEA /* ApiKeys.plist in Resources */,
 				2FC2184E1C68659D006B8236 /* Assets.xcassets in Resources */,
 				2FC2184C1C68659D006B8236 /* Main.storyboard in Resources */,
 			);
