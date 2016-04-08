@@ -10,7 +10,7 @@
 #import <CommonCrypto/CommonHMAC.h>
 #import <CommonCrypto/CommonDigest.h>
 #import "PtvApiPublic.h"
-#import "PtvApiPrivate.h"
+//#import "PtvApiPrivate.h"
 #import "PtvApiDelegate.h"
 
 @implementation PtvApi
@@ -64,16 +64,14 @@
     return fullUrl;
 }
 
-- (void)healthCheck:(void(^)(NSData *data, NSURLResponse *response, NSError *error))completionHandler
+- (void)healthCheck
 {
     NSString *fullUrl = [self GenerateRequestUrl];
     
-    NSURLSession *apiSession = [NSURLSession sharedSession];
+    NSURLSession *apiSession = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:delegate delegateQueue:nil];
     NSURL *apiUrl = [NSURL URLWithString: fullUrl];
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:apiUrl];
-    [apiSession dataTaskWithRequest:urlRequest completionHandler:completionHandler];
+    [apiSession dataTaskWithRequest:urlRequest];
 }
-
-
 
 @end

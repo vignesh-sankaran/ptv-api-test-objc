@@ -20,6 +20,7 @@
 - (void)setUp {
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
+    
 }
 
 - (void)tearDown {
@@ -65,10 +66,8 @@
     
     PtvApi *testApi = [[PtvApi alloc] init];
     
-    [testApi healthCheck:^(NSData *data, NSURLResponse *response, NSError *error) {
-        NSLog(@"This thing has completed");
-        hasCalledBack = YES;
-    }];
+    
+    
     
     NSDate *loopUntil = [NSDate dateWithTimeIntervalSinceNow:10];
     while (hasCalledBack == NO && [loopUntil timeIntervalSinceNow] > 0) {

@@ -12,8 +12,8 @@
 #define PtvApi_h
 
 @interface PtvApi : NSObject
-@property (nonatomic, weak) id <PtvApiDelegate> delegate;
-- (void)healthCheck:(void(^)(NSData *data, NSURLResponse *response, NSError *error))completionHandler;
+@property (nonatomic, weak) id <NSURLSessionDelegate> delegate;
+- (void)healthCheck;
 @end
 
 #endif /* PtvApi_h */
