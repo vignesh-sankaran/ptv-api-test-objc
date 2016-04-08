@@ -31,7 +31,7 @@
 }
 
 - (void)testThatApiCallbackWorks {
-    [testApi healthCheck];
+    [testApi ptvApiHealthCheck];
     
     XCTAssert(callbackInvoked, @"Delegate should return something, I think...");
 }

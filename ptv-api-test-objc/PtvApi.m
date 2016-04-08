@@ -10,7 +10,7 @@
 #import <CommonCrypto/CommonHMAC.h>
 #import <CommonCrypto/CommonDigest.h>
 #import "PtvApiPublic.h"
-//#import "PtvApiPrivate.h"
+#import "PtvApiPrivate.h"
 #import "PtvApiDelegate.h"
 
 @implementation PtvApi
@@ -64,7 +64,7 @@
     return fullUrl;
 }
 
-- (void)healthCheck
+- (void)ptvApiHealthCheck
 {
     NSString *fullUrl = [self GenerateRequestUrl];
     
