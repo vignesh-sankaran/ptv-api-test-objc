@@ -12,7 +12,7 @@
 #define PtvApi_h
 
 @interface PtvApi : NSObject
-@property (nonatomic, weak) id <NSURLSessionDelegate> delegate;
+@property (nonatomic, weak) id <NSURLSessionDataDelegate> delegate;
 - (void)ptvApiHealthCheck;
 @end
 

@@ -71,7 +71,8 @@
     NSURLSession *apiSession = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:delegate delegateQueue:nil];
     NSURL *apiUrl = [NSURL URLWithString: fullUrl];
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:apiUrl];
-    [apiSession dataTaskWithRequest:urlRequest];
+    NSURLSessionDataTask *task = [apiSession dataTaskWithRequest:urlRequest];
+    [task resume];
 }
 
 @end
