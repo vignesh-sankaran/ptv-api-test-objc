@@ -20,7 +20,6 @@
 - (void)setUp {
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
-    
 }
 
 - (void)tearDown {
@@ -30,15 +29,11 @@
 
 - (void)testThatHmacMethodReturnsNotNullString
 {
-    // given
     NSString *healthCheckUrl = @"http://timetableapi.ptv.vic.gov.au";
     PtvApi *testApi = [[PtvApi alloc] init];
     
-    // when
     NSString *test = [testApi CreateHmacSignature:healthCheckUrl];
-    
-    // then
-    
+
     XCTAssertNotNil(test);
 }
 
@@ -58,27 +53,6 @@
     NSLog(@"%@", fullUrl);
     
     XCTAssertNotNil(fullUrl);
-}
-
-- (void)testThatApiCallWorks
-{
-    __block Boolean hasCalledBack = NO;
-    
-    PtvApi *testApi = [[PtvApi alloc] init];
-    
-    
-    
-    
-    NSDate *loopUntil = [NSDate dateWithTimeIntervalSinceNow:10];
-    while (hasCalledBack == NO && [loopUntil timeIntervalSinceNow] > 0) {
-        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:loopUntil];
-    }
-    
-    if (!hasCalledBack)
-    {
-        XCTAssertFalse(@"I know this will fail, thanks");
-    }
-    
 }
 
 @end

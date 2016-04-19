@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2F2B09831CB79564009E506B /* APIDelegateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F2B09821CB79564009E506B /* APIDelegateTests.m */; };
+		2F37FAB61CC21A00008664B3 /* PtvApiViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F37FAB51CC21A00008664B3 /* PtvApiViewModel.m */; };
 		2FC218431C68659C006B8236 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FC218421C68659C006B8236 /* main.m */; };
 		2FC218461C68659C006B8236 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FC218451C68659C006B8236 /* AppDelegate.m */; };
 		2FC218491C68659C006B8236 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FC218481C68659C006B8236 /* ViewController.m */; };
@@ -41,6 +42,8 @@
 		2F08FBC51C6C46BD006D5A80 /* PtvApiPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PtvApiPrivate.h; sourceTree = "<group>"; };
 		2F26E3D01C9FE94C00127DEA /* PtvApiDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PtvApiDelegate.h; sourceTree = "<group>"; };
 		2F2B09821CB79564009E506B /* APIDelegateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIDelegateTests.m; sourceTree = "<group>"; };
+		2F37FAB51CC21A00008664B3 /* PtvApiViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PtvApiViewModel.m; sourceTree = "<group>"; };
+		2F37FAB71CC21A77008664B3 /* PtvApiViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PtvApiViewModel.h; sourceTree = "<group>"; };
 		2FC2183E1C68659C006B8236 /* ptv-api-test-objc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ptv-api-test-objc.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FC218421C68659C006B8236 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2FC218441C68659C006B8236 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -118,10 +121,12 @@
 				2FC2184D1C68659D006B8236 /* Assets.xcassets */,
 				2FC218521C68659D006B8236 /* Info.plist */,
 				2FC218411C68659C006B8236 /* Supporting Files */,
-				2FC218741C6867DF006B8236 /* PtvApiPublic.h */,
 				2FC2184F1C68659D006B8236 /* LaunchScreen.storyboard */,
 				2FC218751C68680B006B8236 /* PtvApi.m */,
+				2F37FAB51CC21A00008664B3 /* PtvApiViewModel.m */,
+				2F37FAB71CC21A77008664B3 /* PtvApiViewModel.h */,
 				2FD6C8A61CA0048300846329 /* ApiKeys.plist */,
+				2FC218741C6867DF006B8236 /* PtvApiPublic.h */,
 				2F08FBC51C6C46BD006D5A80 /* PtvApiPrivate.h */,
 				2F26E3D01C9FE94C00127DEA /* PtvApiDelegate.h */,
 			);
@@ -293,6 +298,7 @@
 				2FC218461C68659C006B8236 /* AppDelegate.m in Sources */,
 				2FC218431C68659C006B8236 /* main.m in Sources */,
 				2FC218761C68680B006B8236 /* PtvApi.m in Sources */,
+				2F37FAB61CC21A00008664B3 /* PtvApiViewModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
