@@ -7,8 +7,8 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "PtvApiPublic.h"
-#import "PtvApiPrivate.h"
+#import "PTVAPIPublic.h"
+#import "PTVAPIPrivate.h"
 
 @interface ptv_api_test_objcTests : XCTestCase
 
@@ -30,7 +30,7 @@
 - (void)testThatHmacMethodReturnsNotNullString
 {
     NSString *healthCheckUrl = @"http://timetableapi.ptv.vic.gov.au";
-    PtvApi *testApi = [[PtvApi alloc] init];
+    PTVAPI *testApi = [[PTVAPI alloc] init];
     
     NSString *test = [testApi CreateHmacSignature:healthCheckUrl];
 
@@ -39,7 +39,7 @@
 
 - (void)testThatDateGetsFormatted
 {
-    PtvApi *testApi = [[PtvApi alloc] init];
+    PTVAPI *testApi = [[PTVAPI alloc] init];
     NSString *dateInISO8601 = [testApi CurrentDateTimeInISO8601];
     
     XCTAssertNotNil(dateInISO8601);
@@ -47,7 +47,7 @@
 
 - (void)testThatFullUrlIsGenerated
 {
-    PtvApi *testApi = [[PtvApi alloc] init];
+    PTVAPI *testApi = [[PTVAPI alloc] init];
     
     NSString *fullUrl = [testApi GenerateRequestUrl];
     NSLog(@"%@", fullUrl);

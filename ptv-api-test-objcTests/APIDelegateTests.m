@@ -8,11 +8,11 @@
 
 #import <XCTest/XCTest.h>
 
-#import "PtvApiPublic.h"
+#import "PTVAPIPublic.h"
 
 @interface APIDelegateTests : XCTestCase <NSURLSessionDataDelegate>
 {
-    PtvApi *testApi;
+    PTVAPI *testApi;
     BOOL callbackInvoked;
 }
 @end
@@ -21,7 +21,7 @@
 
 - (void)setUp {
     [super setUp];
-    testApi = [[PtvApi alloc] init];
+    testApi = [[PTVAPI alloc] init];
     testApi.delegate = self;
     callbackInvoked = NO;
 }
@@ -51,7 +51,7 @@
 }
 
 - (void)testThatApiCallbackWorks {
-    [testApi ptvApiHealthCheck];
+    [testApi PTVAPIHealthCheck];
     
     XCTAssert([self waitForCompletion:30.0], @"Testing to see what happens here...");
 }
