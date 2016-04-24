@@ -1,5 +1,5 @@
 //
-//  PtvApiViewModel.m
+//  PTVAPIHealthCheckViewModel.m
 //  ptv-api-test-objc
 //
 //  Created by Vignesh Sankaran on 16/04/2016.

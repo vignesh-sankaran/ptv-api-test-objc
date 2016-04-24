@@ -1,19 +1,19 @@
 //
-//  PtvApi.h
+//  PTVAPI.h
 //  ptv-api-test-objc
 //
 //  Created by Vignesh Sankaran on 8/02/2016.
 //  Copyright © 2016 Vignesh Sankaran. All rights reserved.
 //
 
-#include "PtvApiDelegate.h"
+#include "PTVAPIDelegate.h"
 
-#ifndef PtvApi_h
-#define PtvApi_h
+#ifndef PTVAPI_h
+#define PTVAPI_h
 
-@interface PtvApi : NSObject
+@interface PTVAPI : NSObject
 @property (nonatomic, weak) id <NSURLSessionDataDelegate> delegate;
-- (void)ptvApiHealthCheck;
+- (void)PTVAPIHealthCheck;
 @end
 
-#endif /* PtvApi_h */
+#endif /* PTVAPI_h */
