@@ -10,9 +10,9 @@
 #define PTVAPIPrivate_h
 
 @interface PTVAPI()
-- (NSString *)CreateHmacSignature:(NSString *)url;
-- (NSString *)CurrentDateTimeInISO8601;
-- (NSString *)GenerateRequestUrl;
+- (NSString *)createHmacSignature:(NSString *)url;
+- (NSString *)currentDateTimeInISO8601;
+- (NSString *)generateRequestUrl;
 @end
 
 

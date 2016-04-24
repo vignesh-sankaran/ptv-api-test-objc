@@ -13,7 +13,7 @@
 
 @class PTVAPI;
 @protocol PTVAPIDelegate <NSObject>
-    -(void) PTVAPIHealthCheck: (PTVAPI *) sender;
+    -(void) ptvAPIHealthCheck: (PTVAPI *) sender;
 @end
 
 #endif /* PTVAPIDelegate_h */

@@ -16,7 +16,7 @@
 @implementation PTVAPI
 @synthesize delegate;
 
-- (NSString *)CreateHmacSignature:(NSString *)url
+- (NSString *)createHmacSignature:(NSString *)url
 {
     NSDictionary *apiSecrets = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ApiKeys" ofType:@"plist"]];
     NSString *apiKey = [apiSecrets valueForKey:@"ApiKey"];
@@ -39,7 +39,7 @@
     return hmacString;
 }
 
-- (NSString *)CurrentDateTimeInISO8601
+- (NSString *)currentDateTimeInISO8601
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setLocale:[NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"]];
@@ -47,26 +47,26 @@
     return [dateFormatter stringFromDate:[NSDate date]];
 }
 
-- (NSString *)GenerateRequestUrl
+- (NSString *)generateRequestUrl
 {
     NSString *baseUrl = @"http://timetableapi.ptv.vic.gov.au";
     NSString *healthCheckUrl = @"/v2/healthcheck";
-    NSString *currentDateTimeInISO8601 = [self CurrentDateTimeInISO8601];
+    NSString *currentDateTimeInISO8601 = [self currentDateTimeInISO8601];
     
     NSDictionary *apiSecrets = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ApiKeys" ofType:@"plist"]];
     NSString *devId = [apiSecrets valueForKey:@"DevId"];
     NSString *preHmacUrl = [NSString stringWithFormat:@"%@%@%@%@%@", healthCheckUrl, @"?timestamp=", currentDateTimeInISO8601, @"&devid=", devId];
     
-    NSString *hmac = [self CreateHmacSignature:preHmacUrl];
+    NSString *hmac = [self createHmacSignature:preHmacUrl];
     
     NSString *fullUrl = [NSString stringWithFormat:@"%@%@%@%@", baseUrl, preHmacUrl, @"&signature=", hmac];
     
     return fullUrl;
 }
 
-- (void)PTVAPIHealthCheck
+- (void)ptvAPIHealthCheck
 {
-    NSString *fullUrl = [self GenerateRequestUrl];
+    NSString *fullUrl = [self generateRequestUrl];
     
     NSURLSession *apiSession = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:delegate delegateQueue:nil];
     NSURL *apiUrl = [NSURL URLWithString: fullUrl];

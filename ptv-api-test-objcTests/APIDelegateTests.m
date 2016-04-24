@@ -51,7 +51,7 @@
 }
 
 - (void)testThatApiCallbackWorks {
-    [testApi PTVAPIHealthCheck];
+    [testApi ptvAPIHealthCheck];
     
     XCTAssert([self waitForCompletion:30.0], @"Testing to see what happens here...");
 }
