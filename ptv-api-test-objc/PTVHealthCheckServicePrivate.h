@@ -14,7 +14,7 @@
 - (NSString *)createHmacSignature:(NSString *)url;
 - (NSString *)currentDateTimeInISO8601;
 - (NSString *)generateRequestUrl;
-- (PTVHealthCheckModel *)parseHealthCheckResponse:(NSData *)rawData;
+- (PTVHealthCheckModel)parseHealthCheckResponse:(NSData *)rawData;
 @end
 
 

@@ -65,7 +65,7 @@
     return fullUrl;
 }
 
-- (PTVHealthCheckModel *)parseHealthCheckResponse:(NSData *)rawData
+- (PTVHealthCheckModel)parseHealthCheckResponse:(NSData *)rawData
 {
     NSError* error;
     NSDictionary* rawDataToDictionary = [NSJSONSerialization JSONObjectWithData:rawData options:NSJSONReadingMutableLeaves error:&error];
@@ -74,7 +74,7 @@
     processedData.securityTokenOk = [rawDataToDictionary objectForKey:@"securityTokenOK"];
     processedData.memCacheOk = [rawDataToDictionary objectForKey:@"memcacheOK"];
     processedData.databaseOk = [rawDataToDictionary objectForKey:@"databaseOK"];
-    return nil;
+    return processedData;
 }
 
 - (void)ptvAPIHealthCheck
