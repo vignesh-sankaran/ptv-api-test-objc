@@ -6,6 +6,7 @@
 //  Copyright © 2016 Vignesh Sankaran. All rights reserved.
 //
 
+#include "PTVHealthCheckModel.h"
 #ifndef PTVAPIPrivate_h
 #define PTVAPIPrivate_h
 
@@ -13,6 +14,7 @@
 - (NSString *)createHmacSignature:(NSString *)url;
 - (NSString *)currentDateTimeInISO8601;
 - (NSString *)generateRequestUrl;
+- (PTVHealthCheckModel *)parseHealthCheckResponse;
 @end
 
 

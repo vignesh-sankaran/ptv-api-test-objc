@@ -7,3 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PTVHealthCheckViewModel.h"
+
+@interface PTVHealthCheckViewModel
+
+@end

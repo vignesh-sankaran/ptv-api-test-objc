@@ -7,8 +7,8 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "PTVAPIPublic.h"
-#import "PTVAPIPrivate.h"
+#import "PTVHealthCheckServicePublic.h"
+#import "PTVHealthCheckServicePrivate.h"
 
 @interface ptv_api_test_objcTests : XCTestCase
 

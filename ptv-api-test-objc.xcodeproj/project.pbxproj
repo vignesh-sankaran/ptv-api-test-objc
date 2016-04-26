@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		2F2B09831CB79564009E506B /* APIDelegateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F2B09821CB79564009E506B /* APIDelegateTests.m */; };
 		2F37FAB61CC21A00008664B3 /* PTVHealthCheckViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F37FAB51CC21A00008664B3 /* PTVHealthCheckViewModel.m */; };
-		2F8759981CCCE84D002DBF40 /* PTVHealthCheckModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F8759971CCCE84D002DBF40 /* PTVHealthCheckModel.m */; };
+		2F8759981CCCE84D002DBF40 /* PTVHealthCheckModel.h in Sources */ = {isa = PBXBuildFile; fileRef = 2F8759971CCCE84D002DBF40 /* PTVHealthCheckModel.h */; };
 		2FC218431C68659C006B8236 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FC218421C68659C006B8236 /* main.m */; };
 		2FC218461C68659C006B8236 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FC218451C68659C006B8236 /* AppDelegate.m */; };
 		2FC218491C68659C006B8236 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FC218481C68659C006B8236 /* ViewController.m */; };
@@ -18,7 +18,7 @@
 		2FC218511C68659D006B8236 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FC2184F1C68659D006B8236 /* LaunchScreen.storyboard */; };
 		2FC2185C1C68659D006B8236 /* ptv_api_test_objcTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FC2185B1C68659D006B8236 /* ptv_api_test_objcTests.m */; };
 		2FC218671C68659D006B8236 /* ptv_api_test_objcUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FC218661C68659D006B8236 /* ptv_api_test_objcUITests.m */; };
-		2FC218761C68680B006B8236 /* PTVAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FC218751C68680B006B8236 /* PTVAPI.m */; };
+		2FC218761C68680B006B8236 /* PTVHealthCheckService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FC218751C68680B006B8236 /* PTVHealthCheckService.m */; };
 		2FD6C8A71CA0048300846329 /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2FD6C8A61CA0048300846329 /* ApiKeys.plist */; };
 /* End PBXBuildFile section */
 
@@ -40,13 +40,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2F08FBC51C6C46BD006D5A80 /* PTVAPIPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTVAPIPrivate.h; sourceTree = "<group>"; };
-		2F26E3D01C9FE94C00127DEA /* PTVAPIDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTVAPIDelegate.h; sourceTree = "<group>"; };
+		2F08FBC51C6C46BD006D5A80 /* PTVHealthCheckServicePrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTVHealthCheckServicePrivate.h; sourceTree = "<group>"; };
+		2F26E3D01C9FE94C00127DEA /* PTVHealthCheckServiceDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTVHealthCheckServiceDelegate.h; sourceTree = "<group>"; };
 		2F2B09821CB79564009E506B /* APIDelegateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIDelegateTests.m; sourceTree = "<group>"; };
 		2F37FAB51CC21A00008664B3 /* PTVHealthCheckViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTVHealthCheckViewModel.m; sourceTree = "<group>"; };
 		2F37FAB71CC21A77008664B3 /* PTVHealthCheckViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTVHealthCheckViewModel.h; sourceTree = "<group>"; };
-		2F8759961CCCE83B002DBF40 /* PTVHealthCheckModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTVHealthCheckModel.h; sourceTree = "<group>"; };
-		2F8759971CCCE84D002DBF40 /* PTVHealthCheckModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTVHealthCheckModel.m; sourceTree = "<group>"; };
+		2F8759971CCCE84D002DBF40 /* PTVHealthCheckModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTVHealthCheckModel.h; sourceTree = "<group>"; };
 		2FC2183E1C68659C006B8236 /* ptv-api-test-objc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ptv-api-test-objc.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FC218421C68659C006B8236 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2FC218441C68659C006B8236 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -63,8 +62,8 @@
 		2FC218621C68659D006B8236 /* ptv-api-test-objcUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ptv-api-test-objcUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FC218661C68659D006B8236 /* ptv_api_test_objcUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ptv_api_test_objcUITests.m; sourceTree = "<group>"; };
 		2FC218681C68659D006B8236 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2FC218741C6867DF006B8236 /* PTVAPIPublic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTVAPIPublic.h; sourceTree = "<group>"; };
-		2FC218751C68680B006B8236 /* PTVAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTVAPI.m; sourceTree = "<group>"; };
+		2FC218741C6867DF006B8236 /* PTVHealthCheckServicePublic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTVHealthCheckServicePublic.h; sourceTree = "<group>"; };
+		2FC218751C68680B006B8236 /* PTVHealthCheckService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTVHealthCheckService.m; sourceTree = "<group>"; };
 		2FD6C8A61CA0048300846329 /* ApiKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ApiKeys.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -120,14 +119,13 @@
 				2FC218451C68659C006B8236 /* AppDelegate.m */,
 				2FC218471C68659C006B8236 /* ViewController.h */,
 				2FC218481C68659C006B8236 /* ViewController.m */,
-				2FC218741C6867DF006B8236 /* PTVAPIPublic.h */,
-				2F08FBC51C6C46BD006D5A80 /* PTVAPIPrivate.h */,
-				2F26E3D01C9FE94C00127DEA /* PTVAPIDelegate.h */,
-				2FC218751C68680B006B8236 /* PTVAPI.m */,
+				2FC218741C6867DF006B8236 /* PTVHealthCheckServicePublic.h */,
+				2F08FBC51C6C46BD006D5A80 /* PTVHealthCheckServicePrivate.h */,
+				2F26E3D01C9FE94C00127DEA /* PTVHealthCheckServiceDelegate.h */,
+				2FC218751C68680B006B8236 /* PTVHealthCheckService.m */,
 				2F37FAB71CC21A77008664B3 /* PTVHealthCheckViewModel.h */,
 				2F37FAB51CC21A00008664B3 /* PTVHealthCheckViewModel.m */,
-				2F8759961CCCE83B002DBF40 /* PTVHealthCheckModel.h */,
-				2F8759971CCCE84D002DBF40 /* PTVHealthCheckModel.m */,
+				2F8759971CCCE84D002DBF40 /* PTVHealthCheckModel.h */,
 				2FC2184A1C68659D006B8236 /* Main.storyboard */,
 				2FC2184D1C68659D006B8236 /* Assets.xcassets */,
 				2FC218521C68659D006B8236 /* Info.plist */,
@@ -302,8 +300,8 @@
 				2FC218491C68659C006B8236 /* ViewController.m in Sources */,
 				2FC218461C68659C006B8236 /* AppDelegate.m in Sources */,
 				2FC218431C68659C006B8236 /* main.m in Sources */,
-				2FC218761C68680B006B8236 /* PTVAPI.m in Sources */,
-				2F8759981CCCE84D002DBF40 /* PTVHealthCheckModel.m in Sources */,
+				2FC218761C68680B006B8236 /* PTVHealthCheckService.m in Sources */,
+				2F8759981CCCE84D002DBF40 /* PTVHealthCheckModel.h in Sources */,
 				2F37FAB61CC21A00008664B3 /* PTVHealthCheckViewModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

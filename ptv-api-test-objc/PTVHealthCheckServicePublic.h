@@ -6,7 +6,7 @@
 //  Copyright © 2016 Vignesh Sankaran. All rights reserved.
 //
 
-#include "PTVAPIDelegate.h"
+#include "PTVHealthCheckServiceDelegate.h"
 
 #ifndef PTVAPI_h
 #define PTVAPI_h

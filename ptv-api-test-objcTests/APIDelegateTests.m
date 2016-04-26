@@ -8,7 +8,7 @@
 
 #import <XCTest/XCTest.h>
 
-#import "PTVAPIPublic.h"
+#import "PTVHealthCheckServicePublic.h"
 
 @interface APIDelegateTests : XCTestCase <NSURLSessionDataDelegate>
 {

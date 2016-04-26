@@ -9,9 +9,10 @@
 #import <Foundation/Foundation.h>
 #import <CommonCrypto/CommonHMAC.h>
 #import <CommonCrypto/CommonDigest.h>
-#import "PTVAPIPublic.h"
-#import "PTVAPIPrivate.h"
-#import "PTVAPIDelegate.h"
+#import "PTVHealthCheckServicePublic.h"
+#import "PTVHealthCheckServicePrivate.h"
+#import "PTVHealthCheckServiceDelegate.h"
+#import "PTVHealthCheckModel.h"
 
 @implementation PTVAPI
 @synthesize delegate;
@@ -62,6 +63,11 @@
     NSString *fullUrl = [NSString stringWithFormat:@"%@%@%@%@", baseUrl, preHmacUrl, @"&signature=", hmac];
     
     return fullUrl;
+}
+
+- (PTVHealthCheckModel *)parseHealthCheckResponse
+{
+    return nil;
 }
 
 - (void)ptvAPIHealthCheck

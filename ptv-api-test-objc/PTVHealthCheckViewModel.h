@@ -9,6 +9,8 @@
 #ifndef PTVAPIViewModel_h
 #define PTVAPIViewModel_h
 
+@interface PTVAPIViewModel : NSObject
 
+@end
 
 #endif /* PTVAPIViewModel_h */
