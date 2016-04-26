@@ -67,6 +67,13 @@
 
 - (PTVHealthCheckModel *)parseHealthCheckResponse:(NSData *)rawData
 {
+    NSError* error;
+    NSDictionary* rawDataToDictionary = [NSJSONSerialization JSONObjectWithData:rawData options:NSJSONReadingMutableLeaves error:&error];
+    PTVHealthCheckModel processedData;
+    processedData.clientClockOk = [rawDataToDictionary objectForKey:@"clientClockOK"];
+    processedData.securityTokenOk = [rawDataToDictionary objectForKey:@"securityTokenOK"];
+    processedData.memCacheOk = [rawDataToDictionary objectForKey:@"memcacheOK"];
+    processedData.databaseOk = [rawDataToDictionary objectForKey:@"databaseOK"];
     return nil;
 }
 
@@ -75,7 +82,7 @@
     NSString *fullUrl = [self generateRequestUrl];
     
     NSURLSession *apiSession = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
-    NSURL *apiUrl = [NSURL URLWithString: fullUrl];
+    NSURL *apiUrl = [NSURL URLWithString:fullUrl];
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:apiUrl];
     NSURLSessionDataTask *task = [apiSession dataTaskWithRequest:urlRequest
                                 completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
