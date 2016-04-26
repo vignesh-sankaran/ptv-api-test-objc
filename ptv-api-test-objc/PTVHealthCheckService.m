@@ -69,6 +69,7 @@
 {
     NSError* error;
     NSDictionary* rawDataToDictionary = [NSJSONSerialization JSONObjectWithData:rawData options:NSJSONReadingMutableLeaves error:&error];
+    // Use NSArray rather than NSDictionary to speed up conversion to PTVHealthCheckModel
     PTVHealthCheckModel processedData;
     processedData.clientClockOk = [rawDataToDictionary objectForKey:@"clientClockOK"];
     processedData.securityTokenOk = [rawDataToDictionary objectForKey:@"securityTokenOK"];
@@ -85,9 +86,9 @@
     NSURL *apiUrl = [NSURL URLWithString:fullUrl];
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:apiUrl];
     NSURLSessionDataTask *task = [apiSession dataTaskWithRequest:urlRequest
-                                completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-                                    [self parseHealthCheckResponse:data];
-                                }];
+                                    completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+                                        [self parseHealthCheckResponse:data];
+                                    }];
     [task resume];
 }
 
