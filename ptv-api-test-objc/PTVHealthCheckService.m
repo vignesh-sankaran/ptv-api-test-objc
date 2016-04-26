@@ -65,7 +65,7 @@
     return fullUrl;
 }
 
-- (PTVHealthCheckModel *)parseHealthCheckResponse
+- (PTVHealthCheckModel *)parseHealthCheckResponse:(NSData *)rawData
 {
     return nil;
 }
@@ -74,10 +74,13 @@
 {
     NSString *fullUrl = [self generateRequestUrl];
     
-    NSURLSession *apiSession = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:delegate delegateQueue:nil];
+    NSURLSession *apiSession = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     NSURL *apiUrl = [NSURL URLWithString: fullUrl];
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:apiUrl];
-    NSURLSessionDataTask *task = [apiSession dataTaskWithRequest:urlRequest];
+    NSURLSessionDataTask *task = [apiSession dataTaskWithRequest:urlRequest
+                                completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+                                    [self parseHealthCheckResponse:data];
+                                }];
     [task resume];
 }
 
