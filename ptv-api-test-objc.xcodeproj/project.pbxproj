@@ -10,6 +10,7 @@
 		2F2B09831CB79564009E506B /* APIDelegateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F2B09821CB79564009E506B /* APIDelegateTests.m */; };
 		2F37FAB61CC21A00008664B3 /* PTVHealthCheckViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F37FAB51CC21A00008664B3 /* PTVHealthCheckViewModel.m */; };
 		2F8759981CCCE84D002DBF40 /* PTVHealthCheckModel.h in Sources */ = {isa = PBXBuildFile; fileRef = 2F8759971CCCE84D002DBF40 /* PTVHealthCheckModel.h */; };
+		2FB652C81CE1B1E6004A9F71 /* PTVHealthCheckModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FB652C71CE1B1E5004A9F71 /* PTVHealthCheckModel.m */; };
 		2FC218431C68659C006B8236 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FC218421C68659C006B8236 /* main.m */; };
 		2FC218461C68659C006B8236 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FC218451C68659C006B8236 /* AppDelegate.m */; };
 		2FC218491C68659C006B8236 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FC218481C68659C006B8236 /* ViewController.m */; };
@@ -41,11 +42,11 @@
 
 /* Begin PBXFileReference section */
 		2F08FBC51C6C46BD006D5A80 /* PTVHealthCheckServicePrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTVHealthCheckServicePrivate.h; sourceTree = "<group>"; };
-		2F26E3D01C9FE94C00127DEA /* PTVHealthCheckServiceDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTVHealthCheckServiceDelegate.h; sourceTree = "<group>"; };
 		2F2B09821CB79564009E506B /* APIDelegateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIDelegateTests.m; sourceTree = "<group>"; };
 		2F37FAB51CC21A00008664B3 /* PTVHealthCheckViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTVHealthCheckViewModel.m; sourceTree = "<group>"; };
 		2F37FAB71CC21A77008664B3 /* PTVHealthCheckViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTVHealthCheckViewModel.h; sourceTree = "<group>"; };
 		2F8759971CCCE84D002DBF40 /* PTVHealthCheckModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTVHealthCheckModel.h; sourceTree = "<group>"; };
+		2FB652C71CE1B1E5004A9F71 /* PTVHealthCheckModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTVHealthCheckModel.m; sourceTree = "<group>"; };
 		2FC2183E1C68659C006B8236 /* ptv-api-test-objc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ptv-api-test-objc.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FC218421C68659C006B8236 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2FC218441C68659C006B8236 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -121,11 +122,11 @@
 				2FC218481C68659C006B8236 /* ViewController.m */,
 				2FC218741C6867DF006B8236 /* PTVHealthCheckServicePublic.h */,
 				2F08FBC51C6C46BD006D5A80 /* PTVHealthCheckServicePrivate.h */,
-				2F26E3D01C9FE94C00127DEA /* PTVHealthCheckServiceDelegate.h */,
 				2FC218751C68680B006B8236 /* PTVHealthCheckService.m */,
 				2F37FAB71CC21A77008664B3 /* PTVHealthCheckViewModel.h */,
 				2F37FAB51CC21A00008664B3 /* PTVHealthCheckViewModel.m */,
 				2F8759971CCCE84D002DBF40 /* PTVHealthCheckModel.h */,
+				2FB652C71CE1B1E5004A9F71 /* PTVHealthCheckModel.m */,
 				2FC2184A1C68659D006B8236 /* Main.storyboard */,
 				2FC2184D1C68659D006B8236 /* Assets.xcassets */,
 				2FC218521C68659D006B8236 /* Info.plist */,
@@ -302,6 +303,7 @@
 				2FC218431C68659C006B8236 /* main.m in Sources */,
 				2FC218761C68680B006B8236 /* PTVHealthCheckService.m in Sources */,
 				2F8759981CCCE84D002DBF40 /* PTVHealthCheckModel.h in Sources */,
+				2FB652C81CE1B1E6004A9F71 /* PTVHealthCheckModel.m in Sources */,
 				2F37FAB61CC21A00008664B3 /* PTVHealthCheckViewModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

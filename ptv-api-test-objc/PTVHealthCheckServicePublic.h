@@ -6,13 +6,10 @@
 //  Copyright © 2016 Vignesh Sankaran. All rights reserved.
 //
 
-#include "PTVHealthCheckServiceDelegate.h"
-
 #ifndef PTVAPI_h
 #define PTVAPI_h
 
 @interface PTVAPI : NSObject
-@property (nonatomic, weak) id <NSURLSessionDataDelegate> delegate;
 - (void)ptvAPIHealthCheck;
 @end
 

@@ -11,11 +11,9 @@
 #import <CommonCrypto/CommonDigest.h>
 #import "PTVHealthCheckServicePublic.h"
 #import "PTVHealthCheckServicePrivate.h"
-#import "PTVHealthCheckServiceDelegate.h"
 #import "PTVHealthCheckModel.h"
 
 @implementation PTVAPI
-@synthesize delegate;
 
 - (NSString *)createHmacSignature:(NSString *)url
 {
