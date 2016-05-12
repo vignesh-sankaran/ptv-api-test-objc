@@ -68,10 +68,11 @@
     NSError* error;
     NSDictionary* rawDataToDictionary = [NSJSONSerialization JSONObjectWithData:rawData options:NSJSONReadingMutableLeaves error:&error];
     // Use NSArray rather than NSDictionary to speed up conversion to PTVHealthCheckModel
-    PTVHealthCheck *processedData = [[PTVHealthCheck alloc] initWithData:[rawDataToDictionary objectForKey:@"clientClockOK"]
-                                                            securityTokenOk:[rawDataToDictionary objectForKey:@"securityTokenOK"]
-                                                            memCacheOk:[rawDataToDictionary objectForKey:@"memcacheOK"]
-                                                            databaseOk:[rawDataToDictionary objectForKey:@"databaseOK"]];
+    PTVHealthCheck *processedData = [[PTVHealthCheck alloc]
+                                    initWithData:[rawDataToDictionary objectForKey:@"clientClockOK"]
+                                    securityTokenOk:[rawDataToDictionary objectForKey:@"securityTokenOK"]
+                                    memCacheOk:[rawDataToDictionary objectForKey:@"memcacheOK"]
+                                    databaseOk:[rawDataToDictionary objectForKey:@"databaseOK"]];
     return processedData;
 }
 
