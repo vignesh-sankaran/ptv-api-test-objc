@@ -76,6 +76,14 @@
     return processedData;
 }
 
+-(void)saveData:(PTVHealthCheck *)healthCheckData
+{
+    NSMutableData *storeData = (NSMutableData*) healthCheckData;
+    NSKeyedArchiver *dataStore = [[NSKeyedArchiver alloc] initForWritingWithMutableData:storeData];
+    [dataStore encodeObject:healthCheckData forKey:@"PTVHealthCheckData"];
+    [dataStore finishEncoding];
+}
+
 - (void)ptvAPIHealthCheck
 {
     NSString *fullUrl = [self generateRequestUrl];
@@ -85,9 +93,12 @@
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:apiUrl];
     NSURLSessionDataTask *task = [apiSession dataTaskWithRequest:urlRequest
                                     completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-                                        [self parseHealthCheckResponse:data];
+                                        PTVHealthCheck* healthCheckData = [self parseHealthCheckResponse:data];
+                                        [self saveData:healthCheckData];
                                     }];
     [task resume];
 }
+
+
 
 @end

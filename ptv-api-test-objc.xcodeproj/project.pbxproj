@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2F2B09831CB79564009E506B /* APIDelegateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F2B09821CB79564009E506B /* APIDelegateTests.m */; };
+		2F2B09831CB79564009E506B /* PTVHealthCheckServicePublicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F2B09821CB79564009E506B /* PTVHealthCheckServicePublicTests.m */; };
 		2F37FAB61CC21A00008664B3 /* PTVHealthCheckViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F37FAB51CC21A00008664B3 /* PTVHealthCheckViewModel.m */; };
 		2F7230A91CE1C4BD00BD5AC5 /* PTVHealthCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F7230A81CE1C4BD00BD5AC5 /* PTVHealthCheck.m */; };
 		2FC218431C68659C006B8236 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FC218421C68659C006B8236 /* main.m */; };
@@ -16,7 +16,7 @@
 		2FC2184C1C68659D006B8236 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FC2184A1C68659D006B8236 /* Main.storyboard */; };
 		2FC2184E1C68659D006B8236 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FC2184D1C68659D006B8236 /* Assets.xcassets */; };
 		2FC218511C68659D006B8236 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FC2184F1C68659D006B8236 /* LaunchScreen.storyboard */; };
-		2FC2185C1C68659D006B8236 /* ptv_api_test_objcTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FC2185B1C68659D006B8236 /* ptv_api_test_objcTests.m */; };
+		2FC2185C1C68659D006B8236 /* PTVHealthCheckServicePrivateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FC2185B1C68659D006B8236 /* PTVHealthCheckServicePrivateTests.m */; };
 		2FC218671C68659D006B8236 /* ptv_api_test_objcUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FC218661C68659D006B8236 /* ptv_api_test_objcUITests.m */; };
 		2FC218761C68680B006B8236 /* PTVHealthCheckService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FC218751C68680B006B8236 /* PTVHealthCheckService.m */; };
 		2FF914DD1CE443E6004737D5 /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2FF914DC1CE443E6004737D5 /* ApiKeys.plist */; };
@@ -41,7 +41,7 @@
 
 /* Begin PBXFileReference section */
 		2F08FBC51C6C46BD006D5A80 /* PTVHealthCheckServicePrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTVHealthCheckServicePrivate.h; sourceTree = "<group>"; };
-		2F2B09821CB79564009E506B /* APIDelegateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIDelegateTests.m; sourceTree = "<group>"; };
+		2F2B09821CB79564009E506B /* PTVHealthCheckServicePublicTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTVHealthCheckServicePublicTests.m; sourceTree = "<group>"; };
 		2F37FAB51CC21A00008664B3 /* PTVHealthCheckViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTVHealthCheckViewModel.m; sourceTree = "<group>"; };
 		2F37FAB71CC21A77008664B3 /* PTVHealthCheckViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTVHealthCheckViewModel.h; sourceTree = "<group>"; };
 		2F7230A81CE1C4BD00BD5AC5 /* PTVHealthCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTVHealthCheck.m; sourceTree = "<group>"; };
@@ -57,7 +57,7 @@
 		2FC218501C68659D006B8236 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2FC218521C68659D006B8236 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2FC218571C68659D006B8236 /* ptv-api-test-objcTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ptv-api-test-objcTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2FC2185B1C68659D006B8236 /* ptv_api_test_objcTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ptv_api_test_objcTests.m; sourceTree = "<group>"; };
+		2FC2185B1C68659D006B8236 /* PTVHealthCheckServicePrivateTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTVHealthCheckServicePrivateTests.m; sourceTree = "<group>"; };
 		2FC2185D1C68659D006B8236 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2FC218621C68659D006B8236 /* ptv-api-test-objcUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ptv-api-test-objcUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FC218661C68659D006B8236 /* ptv_api_test_objcUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ptv_api_test_objcUITests.m; sourceTree = "<group>"; };
@@ -147,8 +147,8 @@
 		2FC2185A1C68659D006B8236 /* ptv-api-test-objcTests */ = {
 			isa = PBXGroup;
 			children = (
-				2F2B09821CB79564009E506B /* APIDelegateTests.m */,
-				2FC2185B1C68659D006B8236 /* ptv_api_test_objcTests.m */,
+				2F2B09821CB79564009E506B /* PTVHealthCheckServicePublicTests.m */,
+				2FC2185B1C68659D006B8236 /* PTVHealthCheckServicePrivateTests.m */,
 				2FC2185D1C68659D006B8236 /* Info.plist */,
 			);
 			path = "ptv-api-test-objcTests";
@@ -310,8 +310,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2FC2185C1C68659D006B8236 /* ptv_api_test_objcTests.m in Sources */,
-				2F2B09831CB79564009E506B /* APIDelegateTests.m in Sources */,
+				2FC2185C1C68659D006B8236 /* PTVHealthCheckServicePrivateTests.m in Sources */,
+				2F2B09831CB79564009E506B /* PTVHealthCheckServicePublicTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

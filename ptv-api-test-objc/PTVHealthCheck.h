@@ -9,13 +9,13 @@
 #ifndef PTVHealthCheck_h
 #define PTVHealthCheck_h
 
-@interface PTVHealthCheck: NSObject
+@interface PTVHealthCheck: NSObject <NSCoding>
 - (instancetype)initWithData:(BOOL)clientClockOk securityTokenOk:(BOOL)securityTokenOk memCacheOk:(BOOL)memCacheOk databaseOk:(BOOL)databaseOk;
 
-@property (nonatomic) BOOL clientClockOk;
-@property (nonatomic) BOOL securityTokenOk;
-@property (nonatomic) BOOL memCacheOk;
-@property (nonatomic) BOOL databaseOk;
+@property BOOL clientClockOk;
+@property BOOL securityTokenOk;
+@property BOOL memCacheOk;
+@property BOOL databaseOk;
 
 @end
 

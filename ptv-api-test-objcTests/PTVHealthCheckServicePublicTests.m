@@ -10,14 +10,14 @@
 
 #import "PTVHealthCheckServicePublic.h"
 
-@interface APIDelegateTests : XCTestCase
+@interface PTVHealthCheckServicePublicTests : XCTestCase
 {
     PTVAPI *testApi;
     BOOL callbackInvoked;
 }
 @end
 
-@implementation APIDelegateTests
+@implementation PTVHealthCheckServicePublicTests
 
 - (void)setUp {
     [super setUp];
@@ -26,7 +26,6 @@
 }
 
 - (void)tearDown {
-    testApi.delegate = nil;
     [super tearDown];
 }
 
