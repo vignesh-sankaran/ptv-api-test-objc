@@ -63,18 +63,14 @@
 {
     PTVAPI *testAPI = [[PTVAPI alloc] init];
     PTVHealthCheck *testData = [[PTVHealthCheck alloc]
-                                     initWithData:true
-                                     securityTokenOk:true
-                                     memCacheOk:true
-                                     databaseOk:true];
-    [testAPI saveData:testData];
-    
-    NSKeyedUnarchiver *dataRetriever = [[NSKeyedUnarchiver alloc] init];
-    
-    NSData *testResponse = [dataRetriever decodeObjectForKey:@"PTVHealthCheckData"];
-    
-    XCTAssertNotNil(testResponse);
-    
+                                     initWithData:YES
+                                     securityTokenOk:YES
+                                     memCacheOk:YES
+                                     databaseOk:YES];
+   
+    NSData *dataLocation = [testAPI saveData:testData];
+    PTVHealthCheck *processedData = [NSKeyedUnarchiver unarchiveObjectWithData:dataLocation];
+    XCTAssertTrue(processedData.clientClockOk);
 }
 
 @end

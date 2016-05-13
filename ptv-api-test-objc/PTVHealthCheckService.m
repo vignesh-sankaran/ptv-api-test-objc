@@ -66,7 +66,7 @@
 - (PTVHealthCheck *)parseHealthCheckResponse:(NSData *)rawData
 {
     NSError* error;
-    NSDictionary* rawDataToDictionary = [NSJSONSerialization JSONObjectWithData:rawData options:NSJSONReadingMutableLeaves error:&error];
+    NSDictionary *rawDataToDictionary = [NSJSONSerialization JSONObjectWithData:rawData options:NSJSONReadingMutableLeaves error:&error];
     // Use NSArray rather than NSDictionary to speed up conversion to PTVHealthCheckModel
     PTVHealthCheck *processedData = [[PTVHealthCheck alloc]
                                     initWithData:[rawDataToDictionary objectForKey:@"clientClockOK"]
@@ -76,12 +76,11 @@
     return processedData;
 }
 
--(void)saveData:(PTVHealthCheck *)healthCheckData
+-(NSData *)saveData:(PTVHealthCheck *)healthCheckData
 {
-    NSMutableData *storeData = (NSMutableData*) healthCheckData;
-    NSKeyedArchiver *dataStore = [[NSKeyedArchiver alloc] initForWritingWithMutableData:storeData];
-    [dataStore encodeObject:healthCheckData forKey:@"PTVHealthCheckData"];
-    [dataStore finishEncoding];
+    // NSKeyedArchiver: serialises and stores object in memory, NSData is the memory address to archived data.
+    NSData *dataLocation = [NSKeyedArchiver archivedDataWithRootObject:healthCheckData];
+    return dataLocation;
 }
 
 - (void)ptvAPIHealthCheck
@@ -98,7 +97,4 @@
                                     }];
     [task resume];
 }
-
-
-
 @end
