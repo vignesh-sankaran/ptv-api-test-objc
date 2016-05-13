@@ -9,21 +9,20 @@
 #import <XCTest/XCTest.h>
 #import "PTVHealthCheckServicePublic.h"
 #import "PTVHealthCheckServicePrivate.h"
+#import "PTVHealthCheck.h"
 
-@interface ptv_api_test_objcTests : XCTestCase
+@interface PTVHealthCheckServicePrivateTests : XCTestCase
 
 @end
 
-@implementation ptv_api_test_objcTests
+@implementation PTVHealthCheckServicePrivateTests
 
 
 - (void)setUp {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
 }
 
 - (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
 }
 
@@ -53,6 +52,25 @@
     NSLog(@"%@", fullUrl);
     
     XCTAssertNotNil(fullUrl);
+}
+
+- (void)testThatRawDataIsProcessed
+{
+    PTVAPI *testAPI = [[PTVAPI alloc] init];
+}
+
+- (void)testThatDataIsSaved
+{
+    PTVAPI *testAPI = [[PTVAPI alloc] init];
+    PTVHealthCheck *testData = [[PTVHealthCheck alloc]
+                                     initWithData:YES
+                                     securityTokenOk:YES
+                                     memCacheOk:YES
+                                     databaseOk:YES];
+   
+    NSData *dataLocation = [testAPI saveData:testData];
+    PTVHealthCheck *processedData = [NSKeyedUnarchiver unarchiveObjectWithData:dataLocation];
+    XCTAssertTrue(processedData.clientClockOk);
 }
 
 @end

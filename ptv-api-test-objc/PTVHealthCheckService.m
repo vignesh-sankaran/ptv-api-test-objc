@@ -11,11 +11,9 @@
 #import <CommonCrypto/CommonDigest.h>
 #import "PTVHealthCheckServicePublic.h"
 #import "PTVHealthCheckServicePrivate.h"
-#import "PTVHealthCheckServiceDelegate.h"
-#import "PTVHealthCheckModel.h"
+#import "PTVHealthCheck.h"
 
 @implementation PTVAPI
-@synthesize delegate;
 
 - (NSString *)createHmacSignature:(NSString *)url
 {
@@ -65,17 +63,24 @@
     return fullUrl;
 }
 
-- (PTVHealthCheckModel)parseHealthCheckResponse:(NSData *)rawData
+- (PTVHealthCheck *)parseHealthCheckResponse:(NSData *)rawData
 {
     NSError* error;
-    NSDictionary* rawDataToDictionary = [NSJSONSerialization JSONObjectWithData:rawData options:NSJSONReadingMutableLeaves error:&error];
+    NSDictionary *rawDataToDictionary = [NSJSONSerialization JSONObjectWithData:rawData options:NSJSONReadingMutableLeaves error:&error];
     // Use NSArray rather than NSDictionary to speed up conversion to PTVHealthCheckModel
-    PTVHealthCheckModel processedData;
-    processedData.clientClockOk = [rawDataToDictionary objectForKey:@"clientClockOK"];
-    processedData.securityTokenOk = [rawDataToDictionary objectForKey:@"securityTokenOK"];
-    processedData.memCacheOk = [rawDataToDictionary objectForKey:@"memcacheOK"];
-    processedData.databaseOk = [rawDataToDictionary objectForKey:@"databaseOK"];
+    PTVHealthCheck *processedData = [[PTVHealthCheck alloc]
+                                    initWithData:[rawDataToDictionary objectForKey:@"clientClockOK"]
+                                    securityTokenOk:[rawDataToDictionary objectForKey:@"securityTokenOK"]
+                                    memCacheOk:[rawDataToDictionary objectForKey:@"memcacheOK"]
+                                    databaseOk:[rawDataToDictionary objectForKey:@"databaseOK"]];
     return processedData;
+}
+
+-(NSData *)saveData:(PTVHealthCheck *)healthCheckData
+{
+    // NSKeyedArchiver: serialises and stores object in memory, NSData is the memory address to archived data.
+    NSData *dataLocation = [NSKeyedArchiver archivedDataWithRootObject:healthCheckData];
+    return dataLocation;
 }
 
 - (void)ptvAPIHealthCheck
@@ -87,9 +92,9 @@
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:apiUrl];
     NSURLSessionDataTask *task = [apiSession dataTaskWithRequest:urlRequest
                                     completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-                                        [self parseHealthCheckResponse:data];
+                                        PTVHealthCheck* healthCheckData = [self parseHealthCheckResponse:data];
+                                        [self saveData:healthCheckData];
                                     }];
     [task resume];
 }
-
 @end
