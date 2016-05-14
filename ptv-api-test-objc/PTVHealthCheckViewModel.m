@@ -9,6 +9,17 @@
 #import <Foundation/Foundation.h>
 #import "PTVHealthCheckViewModel.h"
 
-@interface PTVHealthCheckViewModel
-
+@implementation PTVHealthCheckViewModel
+-(instancetype) init
+{
+    self = [super init];
+    if (!self)
+    {
+        return nil;
+    }
+    
+    
+    
+    return self;
+}
 @end

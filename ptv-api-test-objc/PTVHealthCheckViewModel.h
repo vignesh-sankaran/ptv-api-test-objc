@@ -6,11 +6,15 @@
 //  Copyright © 2016 Vignesh Sankaran. All rights reserved.
 //
 
-#ifndef PTVAPIViewModel_h
-#define PTVAPIViewModel_h
+#ifndef PTVHealthCheckViewModel_h
+#define PTVHealthCheckViewModel_h
 
-@interface PTVAPIViewModel : NSObject
-
+@interface PTVHealthCheckViewModel : NSObject
+-(instancetype) init;
+@property NSString *clientClockStatus;
+@property NSString *securityTokenStatus;
+@property NSString *memCacheStatus;
+@property NSString *databaseStatus;
 @end
 
-#endif /* PTVAPIViewModel_h */
+#endif /* PTVHealthCheckViewModel_h */
