@@ -24,6 +24,11 @@
     {
         return nil;
     }
+    self.clientClockStatus = nil;
+    self.securityTokenStatus = nil;
+    self.memCacheStatus = nil;
+    self.databaseStatus = nil;
+    
     [PTVAPI ptvAPIHealthCheck];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivedApiData:) name:@"HealthCheckData" object:nil];
     
@@ -39,6 +44,9 @@
     self.securityTokenStatus = [self booleanToStatus:self.apiResults.securityTokenOk];
     self.memCacheStatus = [self booleanToStatus:self.apiResults.memCacheOk];
     self.databaseStatus = [self booleanToStatus:self.apiResults.databaseOk];
+    
+    // Not quite sure how to handle passing information to the VC
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"HealthCheckResponded" object:nil];
 }
 
 -(NSString *)booleanToStatus:(BOOL)status
