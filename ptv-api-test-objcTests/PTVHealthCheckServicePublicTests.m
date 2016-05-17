@@ -12,7 +12,6 @@
 
 @interface PTVHealthCheckServicePublicTests : XCTestCase
 {
-    PTVAPI *testApi;
     BOOL callbackInvoked;
 }
 @end
@@ -21,7 +20,6 @@
 
 - (void)setUp {
     [super setUp];
-    testApi = [[PTVAPI alloc] init];
     callbackInvoked = NO;
 }
 
@@ -32,6 +30,6 @@
 // Method is credit to Claus Brooch.
 // Retrieved from http://www.infinite-loop.dk/blog/2011/04/unittesting-asynchronous-network-access/ on 10/04/2016
 - (void)testThatApiCallbackWorks {
-    [testApi ptvAPIHealthCheck];
+    [PTVAPI ptvAPIHealthCheck];
 }
 @end

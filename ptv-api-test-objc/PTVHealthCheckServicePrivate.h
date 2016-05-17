@@ -11,11 +11,11 @@
 #define PTVAPIPrivate_h
 
 @interface PTVAPI()
-- (NSString *)createHmacSignature:(NSString *)url;
-- (NSString *)currentDateTimeInISO8601;
-- (NSString *)generateRequestUrl;
-- (NSData *)saveData:(PTVHealthCheck *)healthCheckData;
-- (PTVHealthCheck *)parseHealthCheckResponse:(NSData *)rawData;
++(NSString *)createHmacSignature:(NSString *)url;
++(NSString *)currentDateTimeInISO8601;
++(NSString *)generateRequestUrl;
++(NSData *)saveData:(PTVHealthCheck *)healthCheckData;
++(PTVHealthCheck *)parseHealthCheckResponse:(NSData *)rawData;
 @end
 
 

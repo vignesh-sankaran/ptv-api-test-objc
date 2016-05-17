@@ -8,6 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "PTVHealthCheckViewModel.h"
+#import "PTVHealthCheck.h"
+#import "PTVHealthCheckServicePublic.h"
+
+@interface PTVHealthCheckViewModel()
+@property NSData *apiResults;
+@end
 
 @implementation PTVHealthCheckViewModel
 -(instancetype) init
@@ -17,9 +23,15 @@
     {
         return nil;
     }
-    
-    
+    [PTVAPI ptvAPIHealthCheck];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivedApiData:) name:@"HealthCheckData" object:self.apiResults];
     
     return self;
 }
+
+-(void)receivedApiData:(NSNotification *)notification
+{
+    
+}
+
 @end
