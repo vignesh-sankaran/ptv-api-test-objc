@@ -12,7 +12,8 @@
 #import "PTVHealthCheckServicePublic.h"
 
 @interface PTVHealthCheckViewModel()
-@property NSData *apiResults;
+@property NSData *apiResultsLocation;
+@property PTVHealthCheck *apiResults;
 @end
 
 @implementation PTVHealthCheckViewModel
@@ -24,14 +25,29 @@
         return nil;
     }
     [PTVAPI ptvAPIHealthCheck];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivedApiData:) name:@"HealthCheckData" object:self.apiResults];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivedApiData:) name:@"HealthCheckData" object:nil];
     
     return self;
 }
 
 -(void)receivedApiData:(NSNotification *)notification
 {
+    self.apiResultsLocation = [notification object];
+    self.apiResults = [NSKeyedUnarchiver unarchiveObjectWithData:self.apiResultsLocation];
     
+    self.clientClockStatus = [self booleanToStatus:self.apiResults.clientClockOk];
+    self.securityTokenStatus = [self booleanToStatus:self.apiResults.securityTokenOk];
+    self.memCacheStatus = [self booleanToStatus:self.apiResults.memCacheOk];
+    self.databaseStatus = [self booleanToStatus:self.apiResults.databaseOk];
+}
+
+-(NSString *)booleanToStatus:(BOOL)status
+{
+    if (status)
+    {
+        return @"OK";
+    }
+    return @"NOT OK";
 }
 
 @end

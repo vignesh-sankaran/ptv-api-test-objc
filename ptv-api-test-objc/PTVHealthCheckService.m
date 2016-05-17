@@ -93,7 +93,7 @@
     NSURLSessionDataTask *task = [apiSession dataTaskWithRequest:urlRequest
                                     completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
                                         PTVHealthCheck* healthCheckData = [self parseHealthCheckResponse:data];
-                                        [self saveData:healthCheckData];
+                                        [[NSNotificationCenter defaultCenter] postNotificationName:@"HealthCheckData" object:[self saveData:healthCheckData]];
                                     }];
     [task resume];
 }
