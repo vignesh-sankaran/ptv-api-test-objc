@@ -31,21 +31,28 @@
     [loadingMessage setFont:[UIFont systemFontOfSize:16]];
     [loadingMessage setText:@"connecting..."];
     [self.view addSubview:loadingMessage];
-    
-    
 }
 
 -(void)onHealthCheckResponse:(NSNotification *)notification
 {
+    [self removeLoadingMessageView];
+    [self displayHealthCheckResults];
+}
+
+-(void)removeLoadingMessageView
+{
     for(id view in [self.view subviews])
     {
-       if ([view tag] == self.loadingMessageViewId)
-       {
-           [view removeFromSuperview];
-           break;
-       }
+        if ([view tag] == self.loadingMessageViewId)
+        {
+            [view removeFromSuperview];
+            break;
+        }
     }
-    
+}
+
+-(void)displayHealthCheckResults
+{
     UILabel *clientClockHeading = [[UILabel alloc] initWithFrame:CGRectMake(75, 100, 200, 100)];
     UILabel *securityTokenHeading = [[UILabel alloc] initWithFrame:CGRectMake(75, 125, 200, 100)];
     UILabel *memCacheHeading = [[UILabel alloc] initWithFrame:CGRectMake(75, 150, 200, 100)];
