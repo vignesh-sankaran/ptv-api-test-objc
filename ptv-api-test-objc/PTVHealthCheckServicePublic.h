@@ -10,7 +10,7 @@
 #define PTVAPI_h
 
 @interface PTVAPI : NSObject
-- (void)ptvAPIHealthCheck;
++ (void)ptvAPIHealthCheck;
 @end
 
 #endif /* PTVAPI_h */

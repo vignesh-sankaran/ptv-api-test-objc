@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PTVHealthCheckViewModel.h"
 
 @interface ViewController : UIViewController
-
-
+@property PTVHealthCheckViewModel *viewModel;
 @end
 

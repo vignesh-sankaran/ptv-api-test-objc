@@ -8,7 +8,54 @@
 
 #import <Foundation/Foundation.h>
 #import "PTVHealthCheckViewModel.h"
+#import "PTVHealthCheck.h"
+#import "PTVHealthCheckServicePublic.h"
 
-@interface PTVHealthCheckViewModel
+@interface PTVHealthCheckViewModel()
+@property NSData *apiResultsLocation;
+@property PTVHealthCheck *apiResults;
+@end
+
+@implementation PTVHealthCheckViewModel
+-(instancetype) init
+{
+    self = [super init];
+    if (!self)
+    {
+        return nil;
+    }
+    self.clientClockStatus = nil;
+    self.securityTokenStatus = nil;
+    self.memCacheStatus = nil;
+    self.databaseStatus = nil;
+    
+    [PTVAPI ptvAPIHealthCheck];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivedApiData:) name:@"HealthCheckData" object:nil];
+    
+    return self;
+}
+
+-(void)receivedApiData:(NSNotification *)notification
+{
+    self.apiResultsLocation = [notification object];
+    self.apiResults = [NSKeyedUnarchiver unarchiveObjectWithData:self.apiResultsLocation];
+    
+    self.clientClockStatus = [self booleanToStatus:self.apiResults.clientClockOk];
+    self.securityTokenStatus = [self booleanToStatus:self.apiResults.securityTokenOk];
+    self.memCacheStatus = [self booleanToStatus:self.apiResults.memCacheOk];
+    self.databaseStatus = [self booleanToStatus:self.apiResults.databaseOk];
+    
+    // Not quite sure how to handle passing information to the VC
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"HealthCheckResponded" object:nil];
+}
+
+-(NSString *)booleanToStatus:(BOOL)status
+{
+    if (status)
+    {
+        return @"OK";
+    }
+    return @"NOT OK";
+}
 
 @end

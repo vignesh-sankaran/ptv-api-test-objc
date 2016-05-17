@@ -29,26 +29,21 @@
 - (void)testThatHmacMethodReturnsNotNullString
 {
     NSString *healthCheckUrl = @"http://timetableapi.ptv.vic.gov.au";
-    PTVAPI *testApi = [[PTVAPI alloc] init];
-    
-    NSString *test = [testApi createHmacSignature:healthCheckUrl];
+    NSString *test = [PTVAPI createHmacSignature:healthCheckUrl];
 
     XCTAssertNotNil(test);
 }
 
 - (void)testThatDateGetsFormatted
 {
-    PTVAPI *testApi = [[PTVAPI alloc] init];
-    NSString *dateInISO8601 = [testApi currentDateTimeInISO8601];
+    NSString *dateInISO8601 = [PTVAPI currentDateTimeInISO8601];
     
     XCTAssertNotNil(dateInISO8601);
 }
 
 - (void)testThatFullUrlIsGenerated
 {
-    PTVAPI *testApi = [[PTVAPI alloc] init];
-    
-    NSString *fullUrl = [testApi generateRequestUrl];
+    NSString *fullUrl = [PTVAPI generateRequestUrl];
     NSLog(@"%@", fullUrl);
     
     XCTAssertNotNil(fullUrl);
@@ -56,19 +51,17 @@
 
 - (void)testThatRawDataIsProcessed
 {
-    PTVAPI *testAPI = [[PTVAPI alloc] init];
 }
 
 - (void)testThatDataIsSaved
 {
-    PTVAPI *testAPI = [[PTVAPI alloc] init];
     PTVHealthCheck *testData = [[PTVHealthCheck alloc]
                                      initWithData:YES
                                      securityTokenOk:YES
                                      memCacheOk:YES
                                      databaseOk:YES];
    
-    NSData *dataLocation = [testAPI saveData:testData];
+    NSData *dataLocation = [PTVAPI saveData:testData];
     PTVHealthCheck *processedData = [NSKeyedUnarchiver unarchiveObjectWithData:dataLocation];
     XCTAssertTrue(processedData.clientClockOk);
 }

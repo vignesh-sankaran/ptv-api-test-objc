@@ -15,7 +15,7 @@
 
 @implementation PTVAPI
 
-- (NSString *)createHmacSignature:(NSString *)url
++(NSString *)createHmacSignature:(NSString *)url
 {
     NSDictionary *apiSecrets = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ApiKeys" ofType:@"plist"]];
     NSString *apiKey = [apiSecrets valueForKey:@"ApiKey"];
@@ -38,7 +38,7 @@
     return hmacString;
 }
 
-- (NSString *)currentDateTimeInISO8601
++(NSString *)currentDateTimeInISO8601
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setLocale:[NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"]];
@@ -46,7 +46,7 @@
     return [dateFormatter stringFromDate:[NSDate date]];
 }
 
-- (NSString *)generateRequestUrl
++(NSString *)generateRequestUrl
 {
     NSString *baseUrl = @"http://timetableapi.ptv.vic.gov.au";
     NSString *healthCheckUrl = @"/v2/healthcheck";
@@ -63,7 +63,7 @@
     return fullUrl;
 }
 
-- (PTVHealthCheck *)parseHealthCheckResponse:(NSData *)rawData
++(PTVHealthCheck *)parseHealthCheckResponse:(NSData *)rawData
 {
     NSError* error;
     NSDictionary *rawDataToDictionary = [NSJSONSerialization JSONObjectWithData:rawData options:NSJSONReadingMutableLeaves error:&error];
@@ -76,14 +76,14 @@
     return processedData;
 }
 
--(NSData *)saveData:(PTVHealthCheck *)healthCheckData
++(NSData *)saveData:(PTVHealthCheck *)healthCheckData
 {
     // NSKeyedArchiver: serialises and stores object in memory, NSData is the memory address to archived data.
     NSData *dataLocation = [NSKeyedArchiver archivedDataWithRootObject:healthCheckData];
     return dataLocation;
 }
 
-- (void)ptvAPIHealthCheck
++(void)ptvAPIHealthCheck
 {
     NSString *fullUrl = [self generateRequestUrl];
     
@@ -93,7 +93,7 @@
     NSURLSessionDataTask *task = [apiSession dataTaskWithRequest:urlRequest
                                     completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
                                         PTVHealthCheck* healthCheckData = [self parseHealthCheckResponse:data];
-                                        [self saveData:healthCheckData];
+                                        [[NSNotificationCenter defaultCenter] postNotificationName:@"HealthCheckData" object:[self saveData:healthCheckData]];
                                     }];
     [task resume];
 }
