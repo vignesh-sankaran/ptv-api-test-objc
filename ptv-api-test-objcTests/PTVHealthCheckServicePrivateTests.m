@@ -49,10 +49,6 @@
     XCTAssertNotNil(fullUrl);
 }
 
-- (void)testThatRawDataIsProcessed
-{
-}
-
 - (void)testThatDataIsSaved
 {
     PTVHealthCheck *testData = [[PTVHealthCheck alloc]
