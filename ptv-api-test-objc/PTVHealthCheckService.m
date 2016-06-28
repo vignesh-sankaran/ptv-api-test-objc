@@ -18,7 +18,7 @@
 +(NSString *)createHmacSignature:(NSString *)url
 {
     NSDictionary *apiSecrets = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ApiKeys" ofType:@"plist"]];
-    NSString *apiKey = [apiSecrets valueForKey:@"ApiKey"];
+    NSString *apiKey = [apiSecrets valueForKey:@"apiKey"];
     
     const char *cApiKey = [apiKey cStringUsingEncoding:NSUTF8StringEncoding];
     const char *cUrl = [url cStringUsingEncoding:NSUTF8StringEncoding];
@@ -53,7 +53,7 @@
     NSString *currentDateTimeInISO8601 = [self currentDateTimeInISO8601];
     
     NSDictionary *apiSecrets = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ApiKeys" ofType:@"plist"]];
-    NSString *devId = [apiSecrets valueForKey:@"DevId"];
+    NSString *devId = [apiSecrets valueForKey:@"devId"];
     NSString *preHmacUrl = [NSString stringWithFormat:@"%@%@%@%@%@", healthCheckUrl, @"?timestamp=", currentDateTimeInISO8601, @"&devid=", devId];
     
     NSString *hmac = [self createHmacSignature:preHmacUrl];
@@ -85,16 +85,24 @@
 
 +(void)ptvAPIHealthCheck
 {
+    
     NSString *fullUrl = [self generateRequestUrl];
     
+
     NSURLSession *apiSession = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     NSURL *apiUrl = [NSURL URLWithString:fullUrl];
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:apiUrl];
-    NSURLSessionDataTask *task = [apiSession dataTaskWithRequest:urlRequest
+
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        NSURLSessionDataTask *task = [apiSession dataTaskWithRequest:urlRequest
                                     completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
                                         PTVHealthCheck* healthCheckData = [self parseHealthCheckResponse:data];
-                                        [[NSNotificationCenter defaultCenter] postNotificationName:@"HealthCheckData" object:[self saveData:healthCheckData]];
+                                        dispatch_async(dispatch_get_main_queue(), ^{
+                                            [[NSNotificationCenter defaultCenter] postNotificationName:@"HealthCheckData" object:[self saveData:healthCheckData]];
+                                        });
                                     }];
-    [task resume];
+        [task resume];
+    });
+    
 }
 @end
